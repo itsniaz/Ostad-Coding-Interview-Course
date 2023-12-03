@@ -8,17 +8,18 @@ Constraints:
 */
 
 fun main(){
-    print(SumOfNaturalNumbers().findSumOfNaturalNumbers(1, 4))
+    println(SumOfNaturalNumbers().findSumOfNaturalNumbers(1, 1))
+    println(SumOfNaturalNumbers().findSumOfNaturalNumbers(10, 6))
 }
 
 class SumOfNaturalNumbers {
 
     fun findSumOfNaturalNumbers(a : Int, b : Int) : Int{
         var sum = 0
-        for(i in a..b){
-            sum+=i
-        }
-
+        val upperBound = if (a > b) a else b
+        val lowerBound =  if (b < a) b else a
+        val n = upperBound - lowerBound + 1
+        sum = n * (upperBound + lowerBound) / 2
         return sum
     }
 }
